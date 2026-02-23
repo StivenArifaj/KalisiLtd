@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     icon: '/images/logo.png',
     apple: '/images/logo.png',
   },
+  verification: {
+    google: 's49Tgei8P39VyX3kFiTCGHwAyZG6IzJNpAfx-jOPgkY',
+  },
 }
 
 export const viewport = {
