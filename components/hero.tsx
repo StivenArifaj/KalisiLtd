@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { ChevronDown } from "lucide-react"
-import Image from "next/image"
 
 const containerVariants = {
   hidden: {},
@@ -19,29 +18,30 @@ const itemVariants = {
 export function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden">
-      {/* Background video */}
+
+      {/* ── Mobile video (small file, no lag) ── */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        poster="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-        className="absolute inset-0 h-full w-full object-cover"
+        poster="/images/concrete-pour.jpg"
+        className="absolute inset-0 h-full w-full object-cover md:hidden"
       >
-        <source
-          src="https://videos.pexels.com/video-files/3044956/3044956-uhd_2560_1440_30fps.mp4"
-          type="video/mp4"
-        />
+        <source src="/videos/hero-mobile.mp4" type="video/mp4" />
       </video>
 
-      {/* Fallback image for when video doesn't load */}
-      <Image
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-        alt="Large concrete construction site with steel rebar structures"
-        fill
-        priority
-        className="absolute inset-0 object-cover"
-      />
+      {/* ── Desktop video (full quality) ── */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/images/concrete-pour.jpg"
+        className="absolute inset-0 hidden h-full w-full object-cover md:block"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/65" />
@@ -58,12 +58,19 @@ export function Hero() {
             variants={itemVariants}
             className="mb-4 font-mono text-sm font-medium uppercase tracking-[0.2em] text-accent"
           >
-            {"London's Construction Specialists"}
+            London &amp; Cornwall&apos;s Construction Specialists
           </motion.p>
+
+          <motion.h2
+            variants={itemVariants}
+            className="mb-2 font-serif text-3xl uppercase tracking-[0.15em] text-white sm:text-4xl md:text-5xl lg:text-[4rem]"
+          >
+            Kalisi Ltd
+          </motion.h2>
 
           <motion.h1
             variants={itemVariants}
-            className="text-hero mb-6 font-serif font-normal uppercase tracking-wider text-white"
+            className="text-hero mb-6 font-serif font-normal uppercase tracking-wider text-white/90"
           >
             Built to Last.
           </motion.h1>
@@ -72,8 +79,8 @@ export function Hero() {
             variants={itemVariants}
             className="text-hero-sub mb-10 max-w-2xl font-sans leading-relaxed text-white/80 md:pr-8"
           >
-            Reinforced Concrete & Steel Fixing Specialists — Delivering structural
-            excellence across London and the South East.
+            Reinforced Concrete &amp; Steel Fixing Specialists — Delivering structural
+            excellence across London and Cornwall.
           </motion.p>
 
           <motion.div

@@ -10,17 +10,18 @@ export function About() {
   return (
     <section id="about" ref={ref} className="bg-background py-20 md:py-28">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-5 md:flex-row md:gap-16">
-        {/* Image */}
+
+        {/* Image — workers on building top with rebar */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="w-full md:order-2 md:w-1/2"
         >
-          <div className="relative aspect-video overflow-hidden rounded-lg md:aspect-[4/3]">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg md:aspect-[4/3]">
             <Image
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-              alt="Construction workers on a reinforced concrete frame building site"
+              src="/images/workers-rebar-top.jpg"
+              alt="Kalisi Ltd workers on a reinforced concrete frame with steel rebar"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -43,25 +44,27 @@ export function About() {
           </h2>
           <div className="mb-6 h-[3px] w-16 bg-accent" />
           <p className="mb-6 font-sans leading-relaxed text-muted-foreground">
-            Kalisi Ltd is a London-based construction specialist with deep expertise in
-            reinforced concrete works, steel fixing, and structural groundworks. From
-            residential foundations to large-scale commercial frames, we bring precision,
-            reliability, and craft to every project. Our teams are fully trained,
-            CSCS-certified, and committed to delivering on time — every time.
+            Kalisi Ltd is a London-based construction specialist with deep expertise in reinforced concrete works, steel fixing, and structural concrete frames. From residential foundations to large-scale commercial builds, we bring precision, reliability, and craft to every project. Our teams are fully trained and committed to delivering on time — every time.
           </p>
-          <div className="mb-6 flex flex-wrap gap-3">
-            <span className="inline-flex items-center rounded-sm bg-accent/10 px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
-              CSCS Certified Teams
+
+          {/* Badge chips */}
+          <div className="mb-8 flex flex-wrap gap-3">
+            <span className="inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
+              ✓ Professional Team
             </span>
-            <span className="inline-flex items-center rounded-sm bg-accent/10 px-3 py-1 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
-              All Projects Fully Insured
+            <span className="inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
+              ✓ 30 Small Projects / Homes
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-sm border border-accent/40 bg-accent/10 px-3 py-1.5 font-sans text-xs font-semibold uppercase tracking-wider text-accent">
+              ✓ 5 Big Projects
             </span>
           </div>
+
           <a
             href="#contact"
-            className="inline-flex items-center font-sans text-sm font-semibold text-accent transition-colors hover:text-accent/80"
+            className="inline-flex items-center gap-2 font-sans text-sm font-semibold text-accent transition-all hover:gap-3"
           >
-            {"Learn More About Us \u2192"}
+            Work With Us <span>→</span>
           </a>
         </motion.div>
       </div>

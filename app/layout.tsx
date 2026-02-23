@@ -9,7 +9,11 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 
 export const metadata: Metadata = {
   title: 'Kalisi Ltd | Reinforced Concrete & Steel Fixing Specialists London',
-  description: "London's trusted reinforced concrete and steel fixing specialists. Expert groundworks, formwork, and structural concrete for residential, commercial, and industrial projects.",
+  description: "London and Cornwall's trusted reinforced concrete and steel fixing specialists. Expert formwork and structural concrete for residential, commercial, and industrial projects.",
+  icons: {
+    icon: '/images/logo.png',
+    apple: '/images/logo.png',
+  },
 }
 
 export const viewport = {
@@ -35,21 +39,21 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Kalisi Ltd",
-              "description": "Reinforced Concrete & Steel Fixing Specialists in London",
+              "description": "Reinforced Concrete & Steel Fixing Specialists in London & Cornwall",
               "url": "https://kalisi.co.uk",
-              "telephone": "+447000000000",
-              "email": "info@kalisi.co.uk",
+              "telephone": ["+447351635413", "+447915590842"],
+              "email": ["erion_cena@icloud.com", "cenajmanuel@icloud.com"],
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "London",
+                "addressRegion": "Cornwall",
                 "addressCountry": "GB"
               },
-              "areaServed": "London and South East England",
+              "areaServed": "London and Cornwall",
               "serviceType": [
                 "Reinforced Concrete Works",
                 "Steel Fixing Services",
                 "Formwork & Shuttering",
-                "Groundworks",
                 "Structural Concrete Projects"
               ]
             })

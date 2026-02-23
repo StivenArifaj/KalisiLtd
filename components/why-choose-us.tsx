@@ -1,19 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ShieldCheck, Award, Clock, HardHat } from "lucide-react"
+import { Award, Clock, ShieldCheck, MessageSquare } from "lucide-react"
 import { useInView } from "@/hooks/use-animations"
 
 const features = [
   {
-    icon: ShieldCheck,
-    title: "Precision Engineering",
-    body: "Every pour, every fix \u2014 executed to exact structural specifications.",
-  },
-  {
     icon: Award,
-    title: "Fully Certified",
-    body: "CSCS-certified teams, full public liability insurance, method statements on request.",
+    title: "Built on Experience",
+    body: "Years on London sites means we know what it takes — the right team, the right method, delivered right.",
   },
   {
     icon: Clock,
@@ -21,9 +16,14 @@ const features = [
     body: "We respect your programme. Reliable teams, zero excuses.",
   },
   {
-    icon: HardHat,
+    icon: ShieldCheck,
     title: "Safety First",
     body: "Strict site safety standards. Zero compromise on health and protection.",
+  },
+  {
+    icon: MessageSquare,
+    title: "Clear Communication",
+    body: "You'll always know where your project stands. No surprises, no chasing — just straight answers.",
   },
 ]
 

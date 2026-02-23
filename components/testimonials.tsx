@@ -9,19 +9,16 @@ const testimonials = [
     quote:
       "Kalisi's team delivered our entire concrete frame on schedule and to a very high standard. Communication was excellent throughout.",
     name: "James T.",
-    role: "Project Manager, London",
   },
   {
     quote:
       "Exceptional steel fixing work on our residential development. Professional, safe, and precise. Will use again without question.",
-    name: "Sarah M.",
-    role: "Site Director, SE Construction Group",
+    name: "Nathan J",
   },
   {
     quote:
       "From foundations to the structural frame \u2014 Kalisi handled everything. Trusted partners on multiple projects now.",
     name: "David R.",
-    role: "Developer, London",
   },
 ]
 
@@ -68,7 +65,6 @@ export function Testimonials() {
               </p>
               <div>
                 <p className="font-sans text-sm font-bold text-foreground">{t.name}</p>
-                <p className="font-sans text-xs text-muted-foreground">{t.role}</p>
               </div>
             </motion.div>
           ))}
@@ -97,7 +93,6 @@ export function Testimonials() {
               </p>
               <div>
                 <p className="font-sans text-sm font-bold text-foreground">{t.name}</p>
-                <p className="font-sans text-xs text-muted-foreground">{t.role}</p>
               </div>
             </motion.div>
           ))}

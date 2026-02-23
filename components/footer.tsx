@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -12,7 +13,6 @@ const serviceLinks = [
   "Reinforced Concrete",
   "Steel Fixing",
   "Formwork & Shuttering",
-  "Groundworks",
   "Structural Projects",
 ]
 
@@ -21,19 +21,21 @@ export function Footer() {
     <footer className="bg-dark-bg pt-16 pb-8">
       <div className="mx-auto max-w-7xl px-5">
         <div className="grid gap-10 text-center md:grid-cols-3 md:text-left">
+
           {/* Logo + tagline */}
           <div className="flex flex-col items-center md:items-start">
-            {/* TODO: Replace with actual Kalisi Ltd logo */}
-            <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-accent font-serif text-2xl text-accent-foreground">
-                K
-              </div>
-              <span className="font-serif text-xl tracking-wider text-white">
-                KALISI LTD
-              </span>
+            <div className="mb-4">
+              <Image
+                src="/images/logo.png"
+                alt="Kalisi Ltd"
+                width={150}
+                height={65}
+                className="h-16 w-auto object-contain"
+              />
             </div>
             <p className="max-w-xs font-sans text-sm leading-relaxed text-muted-foreground">
-              {"London's trusted reinforced concrete and steel fixing specialists. Building structural excellence since 2009."}
+              London &amp; Cornwall&apos;s trusted reinforced concrete and steel fixing specialists.
+              Building structural excellence since 2020.
             </p>
           </div>
 
@@ -80,7 +82,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <p className="text-center font-sans text-xs text-muted-foreground">
-          {"\u00A9 2025 Kalisi Ltd. All rights reserved. Registered in England & Wales."}
+          © 2025 Kalisi Ltd. All rights reserved.
         </p>
       </div>
     </footer>
