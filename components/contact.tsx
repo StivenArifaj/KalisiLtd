@@ -82,7 +82,7 @@ function FloatingField({
 
 export function Contact() {
   const { ref, isInView } = useInView(0.1)
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "")
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || "dummy_placeholder")
   const [selectFocused, setSelectFocused] = useState(false)
   const [selectHasValue, setSelectHasValue] = useState(false)
 
