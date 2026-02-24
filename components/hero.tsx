@@ -25,6 +25,7 @@ export function Hero() {
         muted
         loop
         playsInline
+        preload="auto"
         poster="/images/concrete-pour.jpg"
         className="absolute inset-0 h-full w-full object-cover md:hidden"
       >
@@ -37,10 +38,11 @@ export function Hero() {
         muted
         loop
         playsInline
+        preload="auto"
         poster="/images/concrete-pour.jpg"
         className="absolute inset-0 hidden h-full w-full object-cover md:block"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/hero-small.mp4" type="video/mp4" />
       </video>
 
       {/* Dark overlay */}

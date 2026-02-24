@@ -14,10 +14,11 @@ export function Cinematic() {
                 muted
                 loop
                 playsInline
+                preload="auto"
                 poster="/images/formwork-frame.jpg"
                 className="absolute inset-0 h-full w-full object-cover"
             >
-                <source src="/videos/cinematic.mp4" type="video/mp4" />
+                <source src="/videos/cinematic-small.mp4" type="video/mp4" />
             </video>
 
             {/* Heavy dark overlay for text contrast */}
