@@ -3,7 +3,7 @@
 import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react"
-import { useForm } from "@formspree/react"
+import { useForm, ValidationError } from "@formspree/react"
 import { useInView } from "@/hooks/use-animations"
 
 const projectTypes = [
@@ -36,6 +36,10 @@ function FloatingField({
   const baseClasses =
     "w-full rounded-sm border border-border bg-card px-4 pt-6 pb-2 font-sans text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setHasValue(e.target.value.length > 0)
+  }
+
   return (
     <div
       className="relative"
@@ -53,6 +57,7 @@ function FloatingField({
         <textarea
           ref={inputRef as React.RefObject<HTMLTextAreaElement>}
           name={name}
+          id={name}
           rows={4}
           required={required}
           className={`${baseClasses} resize-none`}
@@ -61,11 +66,13 @@ function FloatingField({
             setFocused(false)
             setHasValue(e.target.value.length > 0)
           }}
+          onChange={handleChange}
         />
       ) : (
         <input
           ref={inputRef as React.RefObject<HTMLInputElement>}
           name={name}
+          id={name}
           type={type}
           required={required}
           className={baseClasses}
@@ -74,6 +81,7 @@ function FloatingField({
             setFocused(false)
             setHasValue(e.target.value.length > 0)
           }}
+          onChange={handleChange}
         />
       )}
     </div>
@@ -82,7 +90,7 @@ function FloatingField({
 
 export function Contact() {
   const { ref, isInView } = useInView(0.1)
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || "dummy_placeholder")
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || "mvzbdagq")
   const [selectFocused, setSelectFocused] = useState(false)
   const [selectHasValue, setSelectHasValue] = useState(false)
 
@@ -118,10 +126,22 @@ export function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
-                <FloatingField label="Full Name" name="name" />
-                <FloatingField label="Company Name (Optional)" name="company" required={false} />
-                <FloatingField label="Phone Number" name="phone" type="tel" />
-                <FloatingField label="Email Address" name="email" type="email" />
+                <div>
+                  <FloatingField label="Full Name" name="name" />
+                  <ValidationError prefix="Name" field="name" errors={state.errors} className="mt-1 text-xs text-red-500" />
+                </div>
+                <div>
+                  <FloatingField label="Company Name (Optional)" name="company" required={false} />
+                  <ValidationError prefix="Company" field="company" errors={state.errors} className="mt-1 text-xs text-red-500" />
+                </div>
+                <div>
+                  <FloatingField label="Phone Number" name="phone" type="tel" />
+                  <ValidationError prefix="Phone" field="phone" errors={state.errors} className="mt-1 text-xs text-red-500" />
+                </div>
+                <div>
+                  <FloatingField label="Email Address" name="email" type="email" />
+                  <ValidationError prefix="Email" field="email" errors={state.errors} className="mt-1 text-xs text-red-500" />
+                </div>
                 <div className="relative sm:col-span-2">
                   <label
                     className={`pointer-events-none absolute left-4 z-10 transition-all duration-200 ${selectFocused || selectHasValue
@@ -133,6 +153,7 @@ export function Contact() {
                   </label>
                   <select
                     name="projectType"
+                    id="projectType"
                     required
                     defaultValue=""
                     className="w-full appearance-none rounded-sm border border-border bg-card px-4 pt-6 pb-2 font-sans text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
@@ -150,11 +171,13 @@ export function Contact() {
                       </option>
                     ))}
                   </select>
+                  <ValidationError prefix="Project Type" field="projectType" errors={state.errors} className="mt-1 text-xs text-red-500" />
                 </div>
                 <div className="sm:col-span-2">
                   <FloatingField label="Message" name="message" textarea />
+                  <ValidationError prefix="Message" field="message" errors={state.errors} className="mt-1 text-xs text-red-500" />
                 </div>
-                <div className="sm:col-span-2">
+                <div className="sm:col-span-2 mt-2">
                   <button
                     type="submit"
                     disabled={state.submitting}
